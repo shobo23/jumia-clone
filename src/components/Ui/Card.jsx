@@ -1,33 +1,63 @@
 import React from "react";
-import style from "style-component";
 import styled from "styled-components";
 
-const Card = ({ text, bgColor, txtColor, icon }) => {
+
+const Cards = ({ textColor, backGround, icon, bigText, smallText }) => {
   return (
-    <Cards>
-      <Top color={txtColor} bg={bgColor}>
-
-
+    <CardsDiv>
+      <Top color={textColor} bg={backGround}>
+        <IconHolder>{icon}</IconHolder>
       </Top>
-    </Cards>
+
+      <TxtHolder>
+        <BigText>{bigText}</BigText>
+        <SmallText>{smallText}</SmallText>
+      </TxtHolder>
+    </CardsDiv>
   );
 };
 
-export default Card;
+export default Cards;
 
-const Cards = styled.div`
-  background-color: #fff;
+const CardsDiv = styled.div`
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  width: 380px;
-  height: 280px;
+  border-radius: 5px;
   position: relative;
 `;
+
 const Top = styled.div`
+  height: 70px;
   width: 100%;
-  height: 50px;
-  background-color: ${(props) => props.bg || "yellow"};
-  color: ${(props) => props.color || "black"};
+  background-color: ${(props) => props.bg || "white"};
+  color: ${(props) => props.color || "green"};
+  border-radius: 8px 8px 0px 0px;
 `;
+
+const IconHolder = styled.div`
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background: white;
+  position: absolute;
+  top: 45px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+`;
+const TxtHolder = styled.div`
+  padding: 50px 20px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  border-radius: 0px 0px 8px 8px;
+`;
+
+const BigText = styled.h1`
+  font-size: 22px;
+`;
+const SmallText = styled.p`
+width: 290px;
+  
+`
